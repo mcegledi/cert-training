@@ -1,8 +1,6 @@
 
 
 <%= link_to "Add Category", new_category_path %>
-
-
 <ul>
   <% @categories.each do |category| %>
     <li>
@@ -43,6 +41,9 @@
           <% end %>
         <% end %>
       <% end %>
+      </ul>
+      <%= link_to "Add Question", new_question_path %>
     </li>
   <% end %>
 </ul>
+<%= link_to "Add Category", new_category_path %>

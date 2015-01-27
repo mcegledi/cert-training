@@ -1,0 +1,48 @@
+
+
+<%= link_to "Add Category", new_category_path %>
+
+
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <h1><%= link_to category.name, edit_category_path(category) %></h1>
+      <%= link_to "Add Question", new_question_path %><br/>
+
+      <ul>
+      <% if category.questions.size != 0 %>
+        <% category.questions.each do |question| %>
+          <li>
+            <h2><%= link_to question.text, edit_question_path(question) %></h2>
+            <% if question.answers.size != 0 %>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Answer</th>
+                    <th>is_right</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <% question.answers.each do |answer| %>
+                    <tr>
+                      <td>
+                      <%= link_to answer.text, edit_answer_path(answer) %>
+                      </td>
+                      <td>
+                        <%= answer.is_right %>
+                      </td>
+                    </tr>
+                  <% end %>
+
+                </tbody>
+              </table>
+              <br/>
+              <%= link_to "Add Answer", new_answer_path %><br/><br/>
+            </li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

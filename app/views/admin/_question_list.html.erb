@@ -1,14 +1,17 @@
-<%= link_to "Add Question", new_question_path %><br/>
+<%= link_to "Add Question", new_question_path(:category => category) %><br/>
 
 <ul>
   <% if category.questions.size != 0 %>
     <% category.questions.each do |question| %>
       <li>
-        <h2><%= link_to question.text, edit_question_path(question) %></h2>
+        <h2><%= link_to question.text, edit_question_path(question) %> |
+        <%= link_to 'del', question_path(question),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+        </h2>
         <%= render 'answer_list', :question => question %>
       </li>
     <% end %>
   <% end %>
 </ul>
-<%= link_to "Add Question", new_question_path %>
-</li>
+<%= link_to "Add Question", new_question_path(:category => category) %>

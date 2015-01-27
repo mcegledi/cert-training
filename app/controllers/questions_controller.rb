@@ -15,6 +15,8 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    category = Category.find(params[:category])
+    @question.category = category
   end
 
   # GET /questions/1/edit

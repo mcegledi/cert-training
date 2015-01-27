@@ -2,8 +2,13 @@
 <ul>
   <% @categories.each do |category| %>
   <li>
-    <h1><%= link_to category.name, edit_category_path(category) %></h1>
+    <h1><%= link_to category.name, edit_category_path(category) %> |
+    <%= link_to 'del', category_path(category),
+      method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+    </h1>
     <%= render 'question_list', :category => category %>
+  </li>
   <% end %>
 </ul>
 <%= link_to "Add Category", new_category_path %>

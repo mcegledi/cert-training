@@ -15,6 +15,8 @@ class AnswersController < ApplicationController
   # GET /answers/new
   def new
     @answer = Answer.new
+    question = Question.find(params[:question])
+    @answer.question = question
   end
 
   # GET /answers/1/edit

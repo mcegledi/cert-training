@@ -16,11 +16,16 @@
         <td>
           <%= answer.is_right %>
         </td>
+        <td>
+          <%= link_to 'del', answer_path(answer),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
       <% end %>
 
     </tbody>
   </table>
   <br/>
-  <%= link_to "Add Answer", new_answer_path %><br/><br/>
 <% end %>
+<%= link_to "Add Answer", new_answer_path(:question => question) %><br/><br/>

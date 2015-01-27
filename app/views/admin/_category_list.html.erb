@@ -1,0 +1,9 @@
+<%= link_to "Add Category", new_category_path %>
+<ul>
+  <% @categories.each do |category| %>
+  <li>
+    <h1><%= link_to category.name, edit_category_path(category) %></h1>
+    <%= render 'question_list', :category => category %>
+  <% end %>
+</ul>
+<%= link_to "Add Category", new_category_path %>

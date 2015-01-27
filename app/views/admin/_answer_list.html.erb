@@ -1,0 +1,26 @@
+<% if question.answers.size != 0 %>
+  <table>
+    <thead>
+      <tr>
+        <th>Answer</th>
+        <th>is_right</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% question.answers.each do |answer| %>
+      <tr>
+        <td>
+          <%= link_to answer.text, edit_answer_path(answer) %>
+        </td>
+        <td>
+          <%= answer.is_right %>
+        </td>
+      </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+  <br/>
+  <%= link_to "Add Answer", new_answer_path %><br/><br/>
+<% end %>

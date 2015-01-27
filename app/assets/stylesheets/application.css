@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ @keyframes movefromleft {
+   0% {margin-left: -100%}
+   100% {margin-left: 0%}
+ }
+
+ @keyframes movefromright {
+   0% {margin-left: 200%}
+   100% {margin-left: 0%}
+ }
+
+ #movefromright {
+   animation: movefromright 0.25s;
+ }
+
+ #movefromleft {
+   animation: movefromleft 0.25s;
+ }

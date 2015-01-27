@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+animateRight = function(){
+  element.style.webkitAnimationName = 'movefromright';
+};
+
+animateLeft = function(){
+  element.style.webkitAnimationName = 'movefromleft';
+};

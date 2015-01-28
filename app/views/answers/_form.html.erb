@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <p id="notice"><%= notice %></p>
+
   <div class="field">
     Belongs to Question<br>
     <%= collection_select(:answer, :question_id, Question.all, :id, :text) %>
@@ -23,7 +25,9 @@
     <%= f.label :is_right %><br>
     <%= f.check_box :is_right %>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit %> |
+    <%= link_to "Back", admin_path %>
   </div>
 <% end %>

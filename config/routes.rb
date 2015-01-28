@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   get 'admin/' => 'admin#index'
+  get 'admin/answers/next' => 'answers#next'
   get 'start/' => 'game#index'
   get 'start/saveSettings' => 'game#saveSettings'
   get 'start/begin' => 'game#get_question'

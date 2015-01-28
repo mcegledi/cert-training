@@ -15,8 +15,8 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
-    @answer = Answer.new
     question = Question.find(params[:question])
+    @answer = Answer.new
     @answer.question = question
   end
 
@@ -31,7 +31,8 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to admin_path, notice: 'Answer was successfully created.' }
+        format.html { redirect_to new_answer_path(:question => @answer.question.id),
+            notice: 'Answer ' + @answer.id.to_s + ' was successfully created.' }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }

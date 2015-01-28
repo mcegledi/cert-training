@@ -39,3 +39,7 @@
  #warning {
    color: red;
  }
+
+ #smallLink {
+   font-size: 12px;
+ }

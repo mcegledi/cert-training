@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with :name => "admin", :password => "123"
 
   # GET /questions
   # GET /questions.json

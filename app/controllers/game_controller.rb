@@ -9,7 +9,7 @@ class GameController < ApplicationController
   end
 
   def saveSettings
-    if params[:quantity].to_i > Question.all.size
+    if params[:quantity].to_i > Question.where(category_id: params[:category_id]).all.size
       redirect_to start_path, warning: 'The quantity exceded the amount of questions'
     else
       session[:quantity] = params[:quantity]
@@ -23,7 +23,7 @@ class GameController < ApplicationController
   end
 
   def get_question
-    if Question.all.size >= session[:count]
+    if Question.where(category_id: session[:category_id]).all.size >= session[:count]
       if $is_next
         begin
           @current_question = Question.offset(rand(Question.count)).

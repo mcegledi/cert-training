@@ -1,0 +1,24 @@
+<div id="movefromleft">
+  <h1>Question number: <%= session[:count] %></h1>
+  <h4>
+    <%= @current_question.category.name %>
+  </h4>
+  <h3>
+    <%= @current_question.text %>
+  </h3>
+  <%= form_tag("/start/begin/next", method: "get") do %>
+    <%= hidden_field_tag "question_id", @current_question.id %>
+    <h2>
+      <ul style="list-style-type:none;">
+        <% @current_question.answers.each do |answer| %>
+          <li>
+            <%= check_box_tag 'checked_answers_ids[]', answer.id -%><%= answer.text %>
+          </li>
+        <% end %>
+      </ul>
+    </h2>
+
+    <%= submit_tag("next >") %>
+  <% end %>
+  <p id="warning"><%= warning %></p>
+</div>

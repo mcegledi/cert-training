@@ -31,3 +31,11 @@
  #movefromleft {
    animation: movefromleft 0.25s;
  }
+
+ #notice {
+   color: green;
+ }
+
+ #warning {
+   color: red;
+ }

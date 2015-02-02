@@ -2,18 +2,17 @@ class GameController < ApplicationController
   add_flash_types :warning, :result
 
   def index
-    @categories = Category.all
     session[:count] = 0
     session[:question_ids] = []
     session[:failures] = 0
   end
 
   def saveSettings
-    if params[:quantity].to_i > Question.where(category_id: params[:category_id]).all.size
+    if params[:quantity].to_i > Question.all.size
       redirect_to start_path, warning: 'The quantity exceded the amount of questions'
     else
       session[:quantity] = params[:quantity]
-      session[:category_id] = params[:category_id]
+      session[:question_ids] = []
 
       $is_next = true
       session[:count] += 1
@@ -23,11 +22,10 @@ class GameController < ApplicationController
   end
 
   def get_question
-    if Question.where(category_id: session[:category_id]).all.size >= session[:count]
+    if Question.all.size >= session[:count]
       if $is_next
         begin
-          @current_question = Question.offset(rand(Question.count)).
-            where(category_id: session[:category_id]).first
+          @current_question = Question.offset(rand(Question.count)).first
         end while(session[:question_ids].include?(@current_question.id))
 
         session[:question_ids] << @current_question.id

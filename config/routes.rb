@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get 'start/begin/next' => 'game#next'
   get 'start/begin/end' => 'game#end'
   get 'start/begin/init' => 'game#init'
+
+  root 'game#index'
 end

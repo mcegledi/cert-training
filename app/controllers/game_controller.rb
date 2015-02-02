@@ -8,6 +8,8 @@ class GameController < ApplicationController
   end
 
   def saveSettings
+    index()
+
     if params[:quantity].to_i > Question.all.size
       redirect_to start_path, warning: 'The quantity exceded the amount of questions'
     else

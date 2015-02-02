@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="logoContainer">
+    <div>
+      <img id="logo" src="/assets/Osudio_horizontal-white.png" width="300" height="150"/>
+    </div>
+    <div id="logotext">
+      Certification Center
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <div id="content">
+    <%= yield %>
+  </div>
 </body>
 </html>

@@ -1,13 +1,16 @@
 <div id="movefromleft">
-  <h1>Cert-Training Settings</h2>
-
-  <p id="warning"><%= warning %></p>
+  <h1>Training Settings</h2>
+  <br/>
 
   <%= form_tag("/start/saveSettings", method: "get") do %>
-    <%= label_tag(:quantity, "Quantinty of Questions:") %>
-    <%= text_field_tag(:quantity, session[:quantity]) %>
+    <%= label_tag(:quantity, "Type of Training") %>
+    <%= select_tag "quantity",
+      "<option value='53'>Hybris Certification Simulation</option><option value='30'>Small Test</option>".html_safe %>
     <br/>
     <br/>
     <%= submit_tag("Lets go!") %>
   <% end %>
+
+  <p id="warning"><%= warning %></p>
+
 </div>

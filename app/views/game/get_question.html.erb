@@ -4,7 +4,7 @@
   </div>
   <br/>
   <h3>
-    <%= @current_question.text %>
+    <%= simple_format(@current_question.text) %>
   </h3>
   <%= form_tag("/start/begin/next", method: "get") do %>
     <%= hidden_field_tag "question_id", @current_question.id %>

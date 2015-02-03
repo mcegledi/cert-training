@@ -14,6 +14,12 @@
  *= require_self
  */
 
+
+ @font-face {
+   font-family: 'Aliquam';
+   src: url('/assets/Aliquam.ttf');
+ }
+
  @keyframes movefromleft {
    0% {margin-left: -100%}
    100% {margin-left: 0%}
@@ -45,5 +51,8 @@
  }
 
  #content {
-   color: #666;
+   color: #FFF;
+   background-color: #0098FF;
+   font-family: "Helvetica",Helvetica;
+   padding-left: 15px;
  }

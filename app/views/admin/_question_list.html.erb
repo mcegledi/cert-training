@@ -3,6 +3,8 @@
 <ul>
   <% if category.questions.size != 0 %>
     <% category.questions.each do |question| %>
+
+
       <li>
         <h2 id="smallLink"><%= link_to question.text, edit_question_path(question) %> |
         <%= link_to 'del', question_path(question),

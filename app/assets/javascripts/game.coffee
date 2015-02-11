@@ -4,7 +4,6 @@
 
 ready = ->
 	$("#showAnswers").on "click", (event) ->
-		console.log("clicked")
 		$("div[name='answer']").toggle("hidden")
 		event.preventDefault()
 

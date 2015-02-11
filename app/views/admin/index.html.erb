@@ -3,5 +3,10 @@
 
   <p id="notice"><%= notice %></p>
 
-  <%= render 'category_list' %>
+  <div contextmenu="new-context-menu">
+  	<%= render 'category_list' %>
+  </div>
+  <menu id="new-context-menu" type="context">
+    <menuitem>Hello World</menuitem>
+  </menu>
 </div>

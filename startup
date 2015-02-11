@@ -1,3 +1,3 @@
 #!/bin/bash
 export SECRET_KEY_BASE=`rake secret`
-rails server -e production -b <ip>
+rails server -e production -b localhost

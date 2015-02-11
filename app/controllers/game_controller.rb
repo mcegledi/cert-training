@@ -24,6 +24,10 @@ class GameController < ApplicationController
   end
 
   def get_question
+    if session[:quantity].to_i < session[:count].to_i
+      redirect_to action: "end"
+    end
+
     if Question.all.size >= session[:count]
       if $is_next
         begin

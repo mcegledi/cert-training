@@ -4,7 +4,7 @@
   </div>
   <br/>
   <h3>
-    <%= simple_format(@current_question.text) %>
+    <%= simple_format @current_question.text.gsub("<", "&#x3c;").gsub(">", "&#x3e;")%>
   </h3>
   <%= form_tag("/start/begin/next", method: "get") do %>
     <%= hidden_field_tag "question_id", @current_question.id %>
@@ -17,7 +17,7 @@
         <% end %>
       </ul>
     </h2>
-
+    <br/>
     <%= submit_tag("next >") %> | Question <%= session[:count] %> of <%= session[:quantity] %>
   <% end %>
   <br/>

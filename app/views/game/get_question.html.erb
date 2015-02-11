@@ -12,7 +12,6 @@
       <ul style="list-style-type:none;">
         <% @current_question.answers.each do |answer| %>
           <li>
-            <%= check_box_tag 'checked_answers_ids[]', answer.id -%><%= answer.text %>
             <div name="answer" class="left hidden"> 
               <% if answer.is_right %>
                 <img src="/assets/right_answer.png" height="10px" width="10px">
@@ -20,6 +19,7 @@
                 <img src="/assets/wrong_answer.png" height="10px" width="10px">
               <% end %>
             </div>
+            <%= check_box_tag 'checked_answers_ids[]', answer.id -%><%= answer.text %>
           </li>
         <% end %>
       </ul>

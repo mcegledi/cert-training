@@ -13,12 +13,20 @@
         <% @current_question.answers.each do |answer| %>
           <li>
             <%= check_box_tag 'checked_answers_ids[]', answer.id -%><%= answer.text %>
+            <div name="answer" class="left hidden"> 
+              <% if answer.is_right %>
+                <img src="/assets/right_answer.png" height="10px" width="10px">
+              <% else %>
+                <img src="/assets/wrong_answer.png" height="10px" width="10px">
+              <% end %>
+            </div>
           </li>
         <% end %>
       </ul>
     </h2>
     <br/>
-    <%= submit_tag("next >") %> | Question <%= session[:count] %> of <%= session[:quantity] %>
+    <%= submit_tag("next >") %> <button id="showAnswers">Show answers</button> 
+      | Question <%= session[:count] %> of <%= session[:quantity] %>
   <% end %>
   <br/>
   <p id="warning"><%= warning %></p>
